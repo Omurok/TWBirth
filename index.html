@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全球新生兒小瑪莉抽獎機</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 引入Google字體 Noto Sans TC 中文字體 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- 引入Font Awesome圖標 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>🎰 全球新生兒小瑪莉抽獎機 🎰</h1>
+        <p class="subtitle">每次抽獎模擬一個新生兒誕生的國家，看看是否能抽中台灣！</p>
+    </header>
+    
+    <main>
+        <!-- 小瑪莉遊戲區域 -->
+        <section id="fruitmachineSection">
+            <div class="game-container">
+                <!-- 獎金顯示區 -->
+                <div class="credit-display">
+                    <div class="win-counter">
+                        <div class="label">WIN</div>
+                        <div class="digits">0000</div>
+                    </div>
+                    <div class="credit-counter">
+                        <div class="label">CREDIT</div>
+                        <div class="digits">00 15</div>
+                    </div>
+                </div>
+                
+                <!-- 小瑪莉遊戲盤 -->
+                <div class="fruit-machine">
+                    <!-- 邊框格子 - 順時針從左上角開始 -->
+                    <div class="grid-container">
+                        <!-- 上排 -->
+                        <div class="grid-cell" data-country="CN" data-tooltip="中國 - 生育率：1.7 - 人口：14.1億">中國</div>
+                        <div class="grid-cell" data-country="IN" data-tooltip="印度 - 生育率：2.2 - 人口：13.8億">印度</div>
+                        <div class="grid-cell" data-country="US" data-tooltip="美國 - 生育率：1.8 - 人口：3.3億">美國</div>
+                        <div class="grid-cell" data-country="ID" data-tooltip="印尼 - 生育率：2.3 - 人口：2.76億">印尼</div>
+                        <div class="grid-cell" data-country="PK" data-tooltip="巴基斯坦 - 生育率：3.6 - 人口：2.21億">巴基斯坦</div>
+                        <div class="grid-cell" data-country="BR" data-tooltip="巴西 - 生育率：1.7 - 人口：2.12億">巴西</div>
+                        <div class="grid-cell" data-country="NG" data-tooltip="奈及利亞 - 生育率：5.4 - 人口：2.06億">奈及利亞</div>
+                        <div class="grid-cell" data-country="BD" data-tooltip="孟加拉 - 生育率：2.1 - 人口：1.65億">孟加拉</div>
+                        <div class="grid-cell" data-country="RU" data-tooltip="俄羅斯 - 生育率：1.5 - 人口：1.45億">俄羅斯</div>
+                        <!-- 右側 -->
+                        <div class="grid-cell" data-country="MX" data-tooltip="墨西哥 - 生育率：2.1 - 人口：1.28億">墨西哥</div>
+                        <div class="grid-cell" data-country="JP" data-tooltip="日本 - 生育率：1.4 - 人口：1.26億">日本</div>
+                        <div class="grid-cell" data-country="ET" data-tooltip="衣索比亞 - 生育率：4.3 - 人口：1.15億">衣索比亞</div>
+                        <div class="grid-cell" data-country="PH" data-tooltip="菲律賓 - 生育率：2.6 - 人口：1.09億">菲律賓</div>
+                        <div class="grid-cell" data-country="EG" data-tooltip="埃及 - 生育率：3.3 - 人口：1.02億">埃及</div>
+                        <div class="grid-cell" data-country="VN" data-tooltip="越南 - 生育率：2.1 - 人口：9700萬">越南</div>
+                        <!-- 下排 -->
+                        <div class="grid-cell" data-country="CD" data-tooltip="剛果 - 生育率：6.0 - 人口：8900萬">剛果</div>
+                        <div class="grid-cell" data-country="TR" data-tooltip="土耳其 - 生育率：2.1 - 人口：8400萬">土耳其</div>
+                        <div class="grid-cell" data-country="IR" data-tooltip="伊朗 - 生育率：2.2 - 人口：8300萬">伊朗</div>
+                        <div class="grid-cell" data-country="DE" data-tooltip="德國 - 生育率：1.5 - 人口：8300萬">德國</div>
+                        <div class="grid-cell" data-country="TH" data-tooltip="泰國 - 生育率：1.5 - 人口：6900萬">泰國</div>
+                        <div class="grid-cell" data-country="UK" data-tooltip="英國 - 生育率：1.7 - 人口：6700萬">英國</div>
+                        <div class="grid-cell" data-country="FR" data-tooltip="法國 - 生育率：1.9 - 人口：6500萬">法國</div>
+                        <div class="grid-cell" data-country="IT" data-tooltip="義大利 - 生育率：1.3 - 人口：6000萬">義大利</div>
+                        <div class="grid-cell" data-country="ZA" data-tooltip="南非 - 生育率：2.4 - 人口：5900萬">南非</div>
+                        <!-- 左側 -->
+                        <div class="grid-cell" data-country="MM" data-tooltip="緬甸 - 生育率：2.2 - 人口：5400萬">緬甸</div>
+                        <div class="grid-cell" data-country="KR" data-tooltip="韓國 - 生育率：1.1 - 人口：5100萬">韓國</div>
+                        <div class="grid-cell" data-country="CO" data-tooltip="哥倫比亞 - 生育率：1.8 - 人口：5000萬">哥倫比亞</div>
+                        <div class="grid-cell" data-country="ES" data-tooltip="西班牙 - 生育率：1.3 - 人口：4700萬">西班牙</div>
+                        <div class="grid-cell" data-country="UA" data-tooltip="烏克蘭 - 生育率：1.4 - 人口：4400萬">烏克蘭</div>
+                        <div class="grid-cell" data-country="AR" data-tooltip="阿根廷 - 生育率：2.3 - 人口：4500萬">阿根廷</div>
+                        
+                        <!-- 中央特殊獎項區域 -->
+                        <div class="center-jackpot">
+                            <div class="jackpot-title">頭獎</div>
+                            <div class="jackpot-flag">🇹🇼</div>
+                            <div class="jackpot-name">台灣</div>
+                            <div class="jackpot-description">生育率: 1.07</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 控制按鈕區域 -->
+                <div class="control-panel">
+                    <button id="spinButton" class="action-button primary-button">
+                        <i class="fas fa-play-circle"></i> 開始抽獎
+                    </button>
+                    <button id="speedToTaiwanButton" class="action-button secondary-button">
+                        <i class="fas fa-fast-forward"></i> 加速抽中台灣
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 結果顯示區域 -->
+            <div id="resultDisplay" class="result-container hidden">
+                <div class="result-header">恭喜！抽中了：</div>
+                <div class="result-content">
+                    <div id="countryFlag" class="result-flag"></div>
+                    <div id="countryName" class="result-name"></div>
+                    <div id="countryInfo" class="result-info"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 抽獎歷史記錄區域 -->
+        <section id="historySection">
+            <h2>抽獎歷史記錄 <span id="historyCount">(0/100)</span></h2>
+            <div class="history-container">
+                <div id="historyList" class="history-list"></div>
+            </div>
+            
+            <div class="history-summary">
+                <h3>抽獎統計</h3>
+                <div id="continentChart" class="chart-container"></div>
+                <div id="topCountries" class="top-countries"></div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>全球新生兒小瑪莉抽獎機 © 2025 | 生育率數據來源：聯合國經濟和社會事務部人口司</p>
+    </footer>
+    
+    <!-- 載入必要的腳本 -->
+    <script src="data.js"></script>
+    <!-- 引入D3.js與TopoJSON庫 -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <!-- 引入Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

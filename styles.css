@@ -1,0 +1,1452 @@
+/* 全域樣式設定 */
+:root {
+  --primary-color: #2980b9;
+  --secondary-color: #27ae60;
+  --accent-color: #e74c3c;
+  --special-color: #8e44ad;
+  --text-color: #2c3e50;
+  --light-text: #ecf0f1;
+  --background-color: #f0f2f5;
+  --card-background: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --border-color: #dcdfe6;
+  
+  /* 深色主題變數 - 增加對比度 */
+  --dark-bg: #222831;
+  --dark-card-bg: #2d3748;
+  --dark-text: #e2e8f0;
+  --dark-border: #4a5568;
+  --dark-highlight: #3498db;
+}
+
+/* 
+ * 採用CSS變數實現主題化設計
+ * 符合開放封閉原則(OCP)：允許擴展主題而不修改基礎樣式
+ */
+body {
+  font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  background-color: var(--dark-bg);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* 頁頭樣式 */
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: var(--dark-card-bg);
+  color: var(--dark-text);
+  border-radius: 0 0 10px 10px;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.2rem;
+  color: var(--light-text);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--light-text);
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* 主要內容區域 */
+main {
+  padding: 0 1rem;
+}
+
+/* 遊戲容器 */
+.game-container {
+  background-color: var(--dark-card-bg);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 結果顯示區域樣式重新優化 */
+.result-container {
+  background: linear-gradient(to bottom, rgba(30, 58, 138, 0.7), rgba(17, 24, 39, 0.8));
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  margin-top: 2rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  color: var(--dark-text);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.result-header {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+  color: #f0f9ff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.result-content {
+  padding: 1.2rem;
+  background: linear-gradient(to bottom, rgba(37, 99, 235, 0.15), rgba(30, 64, 175, 0.25));
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.result-flag {
+  font-size: 5rem;
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+}
+
+.result-name {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+  color: #f0f9ff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(90deg, #60a5fa, #c4b5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.result-info {
+  font-size: 1.05rem;
+  color: #e2e8f0;
+  line-height: 1.8;
+  background-color: rgba(17, 24, 39, 0.4);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: left;
+  border-left: 3px solid rgba(96, 165, 250, 0.6);
+}
+
+.result-info div {
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+/* 國家簡介顯示樣式增強 */
+.country-description {
+  margin-top: 0.75rem;
+  padding: 1rem;
+  background-color: rgba(29, 78, 216, 0.15);
+  border-left: 3px solid rgba(96, 165, 250, 0.8);
+  text-align: left;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  line-height: 1.6;
+  max-height: 120px;
+  overflow-y: auto;
+  color: #f0f9ff;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.country-description::-webkit-scrollbar {
+  width: 4px;
+}
+
+.country-description::-webkit-scrollbar-thumb {
+  background-color: rgba(96, 165, 250, 0.6);
+  border-radius: 4px;
+}
+
+/* 圓餅圖相關樣式 */
+.chart-container {
+  background-color: var(--dark-card-bg);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+
+/* 無數據和錯誤訊息樣式 */
+.no-data-message {
+  color: var(--dark-text);
+  text-align: center;
+  padding: 2rem;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.error-message {
+  color: var(--accent-color);
+  text-align: center;
+  padding: 1.5rem;
+  border: 1px dashed var(--accent-color);
+  border-radius: 8px;
+  background-color: rgba(231, 76, 60, 0.1);
+  font-size: 0.9rem;
+  margin: 1rem;
+  color: var(--light-text);
+}
+
+/* 統計排名表格美化 */
+.top-countries {
+  margin-top: 1rem;
+}
+
+.country-ranking {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--dark-card-bg);
+}
+
+.country-ranking th {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: normal;
+}
+
+.country-ranking td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--dark-border);
+  color: var(--dark-text);
+}
+
+.country-ranking tr:last-child td {
+  border-bottom: none;
+}
+
+.country-ranking tr:nth-child(even) {
+  background-color: rgba(255,255,255,0.03);
+}
+
+.country-ranking tr:hover {
+  background-color: rgba(52, 152, 219, 0.05);
+}
+
+/* 國家排名徽章 */
+.rank-badge {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #eee;
+  text-align: center;
+  line-height: 24px;
+  margin-right: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.rank-badge-1 {
+  background-color: gold;
+  color: #333;
+}
+
+.rank-badge-2 {
+  background-color: silver;
+  color: #333;
+}
+
+.rank-badge-3 {
+  background-color: #cd7f32; /* 銅色 */
+  color: white;
+}
+
+/* 頁腳樣式 */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* 小瑪莉抽獎效果 */
+@keyframes slotMachine {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.spinning {
+  animation: vibrateWheel 0.1s linear infinite;
+}
+
+@keyframes vibrateWheel {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(0.5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-0.5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* 
+ * 響應式設計
+ * 遵循接口隔離原則(ISP)：不同設備提供最適合的佈局與互動方式
+ */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  header {
+    padding: 1.5rem 0;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  header h2 {
+    font-size: 1.2rem;
+  }
+
+  .result-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .country-flag {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .country-stats {
+    justify-content: center;
+  }
+
+  #worldMap {
+    height: 300px;
+  }
+
+  .wheel-container {
+    width: 300px;
+    height: 300px;
+  }
+
+  #canvas {
+    width: 300px !important;
+    height: 300px !important;
+  }
+
+  .history-container {
+    flex-direction: column;
+  }
+}
+
+/* 獎金顯示區樣式 */
+.credit-display {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem;
+    background-color: #0a0a0a;
+    border-radius: 8px;
+    border: 2px solid var(--accent-color);
+}
+
+.win-counter, .credit-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    width: 48%;
+}
+
+.label {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.digits {
+    font-family: 'digital-7', monospace;
+    font-size: 2rem;
+    color: #ff5722;
+    background-color: #000;
+    padding: 0.3rem 0.5rem;
+    border-radius: 3px;
+    margin-top: 0.3rem;
+    letter-spacing: 2px;
+}
+
+/* 小瑪莉遊戲盤樣式 */
+.fruit-machine {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* 不同大洲的國家使用不同顏色 */
+.grid-cell[data-country^="CN"], .grid-cell[data-country^="JP"], 
+.grid-cell[data-country^="KR"], .grid-cell[data-country^="TW"] {
+    background-color: #e57373; /* 亞洲 - 紅色系 */
+}
+
+.grid-cell[data-country^="US"], .grid-cell[data-country^="CA"], 
+.grid-cell[data-country^="MX"] {
+    background-color: #64b5f6; /* 北美洲 - 藍色系 */
+}
+
+.grid-cell[data-country^="BR"], .grid-cell[data-country^="AR"], 
+.grid-cell[data-country^="CO"] {
+    background-color: #81c784; /* 南美洲 - 綠色系 */
+}
+
+.grid-cell[data-country^="DE"], .grid-cell[data-country^="FR"], 
+.grid-cell[data-country^="UK"], .grid-cell[data-country^="IT"],
+.grid-cell[data-country^="ES"], .grid-cell[data-country^="UA"] {
+    background-color: #9575cd; /* 歐洲 - 紫色系 */
+}
+
+.grid-cell[data-country^="NG"], .grid-cell[data-country^="EG"], 
+.grid-cell[data-country^="ZA"], .grid-cell[data-country^="CD"] {
+    background-color: #ffb74d; /* 非洲 - 橙色系 */
+}
+
+.jackpot-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px var(--accent-color);
+    position: relative;
+    z-index: 1;
+}
+
+.jackpot-flag {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.jackpot-name {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    position: relative;
+    z-index: 1;
+}
+
+.jackpot-description {
+    font-size: 1.2rem;
+    color: #aed6f1;
+    position: relative;
+    z-index: 1;
+}
+
+.center-jackpot::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(26, 188, 156, 0.3) 0%, rgba(26, 82, 118, 0) 70%);
+    z-index: 0;
+    border-radius: 50%;
+}
+
+/* 全局變量 - 使用CSS變量便於主題調整，遵循開閉原則 */
+:root {
+    --primary-color: #d32f2f;           /* 主色調：紅色 */
+    --secondary-color: #1e88e5;         /* 次要色調：藍色 */
+    --accent-color: #ffc107;            /* 強調色：金黃色 */
+    --background-color: #121212;        /* 背景色：深灰色 */
+    --text-light: #ffffff;              /* 淺色文本 */
+    --text-dark: #333333;               /* 深色文本 */
+    --container-bg: #0e1621;            /* 容器背景色 */
+    --success-color: #4caf50;           /* 成功色調：綠色 */
+    --warning-color: #ff9800;           /* 警告色調：橙色 */
+    --card-bg: #1c2733;                 /* 卡片背景 */
+    --grid-cell-bg: #34495e;            /* 網格單元格背景 */
+}
+
+/* 全局重置和基本樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-light);
+    line-height: 1.6;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* 頭部區域樣式 */
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #8b0000 100%);
+    border-bottom: 5px solid var(--accent-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #ffccbc;
+}
+
+/* 主內容區域 */
+main {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+section {
+    margin-bottom: 3rem;
+    background-color: var(--container-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+section h2 {
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* 小瑪莉遊戲區域樣式 - 實現裝飾者模式，通過CSS裝飾UI組件 */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 3px solid #495867;
+}
+
+.grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #272b30;
+    border: 8px solid #795548;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
+    position: relative;
+    width: 550px;
+    height: 550px;
+}
+
+/* 格子樣式 - 使用狀態模式，不同狀態有不同視覺效果 */
+.grid-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--grid-cell-bg);
+    border-radius: 5px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.3rem;
+    text-align: center;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    cursor: default;
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    user-select: none;
+}
+
+.grid-cell:nth-child(1) { transform: rotate(270deg) translateY(-225px) rotate(-270deg); }
+.grid-cell:nth-child(2) { transform: rotate(285deg) translateY(-225px) rotate(-285deg); }
+.grid-cell:nth-child(3) { transform: rotate(300deg) translateY(-225px) rotate(-300deg); }
+.grid-cell:nth-child(4) { transform: rotate(315deg) translateY(-225px) rotate(-315deg); }
+.grid-cell:nth-child(5) { transform: rotate(330deg) translateY(-225px) rotate(-330deg); }
+.grid-cell:nth-child(6) { transform: rotate(345deg) translateY(-225px) rotate(-345deg); }
+.grid-cell:nth-child(7) { transform: rotate(0deg) translateY(-225px) rotate(0deg); }
+.grid-cell:nth-child(8) { transform: rotate(15deg) translateY(-225px) rotate(-15deg); }
+.grid-cell:nth-child(9) { transform: rotate(30deg) translateY(-225px) rotate(-30deg); }
+
+.grid-cell:nth-child(10) { transform: rotate(45deg) translateY(-225px) rotate(-45deg); }
+.grid-cell:nth-child(11) { transform: rotate(60deg) translateY(-225px) rotate(-60deg); }
+.grid-cell:nth-child(12) { transform: rotate(75deg) translateY(-225px) rotate(-75deg); }
+.grid-cell:nth-child(13) { transform: rotate(90deg) translateY(-225px) rotate(-90deg); }
+.grid-cell:nth-child(14) { transform: rotate(105deg) translateY(-225px) rotate(-105deg); }
+.grid-cell:nth-child(15) { transform: rotate(120deg) translateY(-225px) rotate(-120deg); }
+
+.grid-cell:nth-child(16) { transform: rotate(135deg) translateY(-225px) rotate(-135deg); }
+.grid-cell:nth-child(17) { transform: rotate(150deg) translateY(-225px) rotate(-150deg); }
+.grid-cell:nth-child(18) { transform: rotate(165deg) translateY(-225px) rotate(-165deg); }
+.grid-cell:nth-child(19) { transform: rotate(180deg) translateY(-225px) rotate(-180deg); }
+.grid-cell:nth-child(20) { transform: rotate(195deg) translateY(-225px) rotate(-195deg); }
+.grid-cell:nth-child(21) { transform: rotate(210deg) translateY(-225px) rotate(-210deg); }
+.grid-cell:nth-child(22) { transform: rotate(225deg) translateY(-225px) rotate(-225deg); }
+.grid-cell:nth-child(23) { transform: rotate(240deg) translateY(-225px) rotate(-240deg); }
+.grid-cell:nth-child(24) { transform: rotate(255deg) translateY(-225px) rotate(-255deg); }
+
+.grid-cell:nth-child(25) { transform: rotate(270deg) translateY(-225px) rotate(-270deg); }
+.grid-cell:nth-child(26) { transform: rotate(285deg) translateY(-225px) rotate(-285deg); }
+.grid-cell:nth-child(27) { transform: rotate(300deg) translateY(-225px) rotate(-300deg); }
+.grid-cell:nth-child(28) { transform: rotate(315deg) translateY(-225px) rotate(-315deg); }
+.grid-cell:nth-child(29) { transform: rotate(330deg) translateY(-225px) rotate(-330deg); }
+.grid-cell:nth-child(30) { transform: rotate(345deg) translateY(-225px) rotate(-345deg); }
+
+.grid-cell.active {
+    animation: pulse 0.5s infinite alternate;
+    box-shadow: 0 0 15px var(--accent-color);
+    z-index: 1;
+}
+
+.grid-cell.winner {
+    animation: win-pulse 1s infinite alternate;
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    font-weight: bold;
+    transform: scale(1.05);
+}
+
+.center-jackpot {
+    position: absolute;
+    background-color: #1a5276;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    color: var(--text-light);
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+/* 格子懸停提示工具 - 採用橋接模式，分離抽象和實現 */
+.grid-cell::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    pointer-events: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: max-content;
+    max-width: 200px;
+}
+
+.grid-cell:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 為圓形佈局調整懸停提示位置 */
+.grid-cell:nth-child(1)::after, .grid-cell:nth-child(2)::after, .grid-cell:nth-child(3)::after,
+.grid-cell:nth-child(4)::after, .grid-cell:nth-child(5)::after, .grid-cell:nth-child(6)::after,
+.grid-cell:nth-child(7)::after, .grid-cell:nth-child(8)::after, .grid-cell:nth-child(9)::after {
+    bottom: 120%;
+}
+
+.grid-cell:nth-child(10)::after, .grid-cell:nth-child(11)::after, .grid-cell:nth-child(12)::after,
+.grid-cell:nth-child(13)::after, .grid-cell:nth-child(14)::after, .grid-cell:nth-child(15)::after {
+    left: auto;
+    right: 120%;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.grid-cell:nth-child(16)::after, .grid-cell:nth-child(17)::after, .grid-cell:nth-child(18)::after,
+.grid-cell:nth-child(19)::after, .grid-cell:nth-child(20)::after, .grid-cell:nth-child(21)::after,
+.grid-cell:nth-child(22)::after, .grid-cell:nth-child(23)::after, .grid-cell:nth-child(24)::after {
+    top: 120%;
+    bottom: auto;
+}
+
+.grid-cell:nth-child(25)::after, .grid-cell:nth-child(26)::after, .grid-cell:nth-child(27)::after,
+.grid-cell:nth-child(28)::after, .grid-cell:nth-child(29)::after, .grid-cell:nth-child(30)::after {
+    left: 120%;
+    right: auto;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* 控制按鈕區域 */
+.control-panel {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.action-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+.secondary-button {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.secondary-button:hover {
+    background-color: #1565c0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* 結果顯示區域 */
+.result-container {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin-top: 2rem;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.result-header {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.result-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result-flag {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.result-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.result-info {
+    font-size: 1.1rem;
+    color: #bdc3c7;
+}
+
+/* 國家簡介顯示樣式 */
+.country-description {
+    margin-top: 0.75rem;
+    padding: 0.5rem;
+    background-color: rgba(0,0,0,0.03);
+    border-left: 3px solid var(--primary-color);
+    text-align: left;
+    border-radius: 0 4px 4px 0;
+    font-style: italic;
+    line-height: 1.5;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.country-description::-webkit-scrollbar {
+    width: 4px;
+}
+
+.country-description::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 4px;
+}
+
+/* 抽獎歷史記錄區域 */
+.history-container {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    padding: 0.7rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.history-item:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.history-flag {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.history-details {
+    flex-grow: 1;
+}
+
+.history-country {
+    font-weight: bold;
+    color: white;
+}
+
+.history-info {
+    font-size: 0.85rem;
+    color: #bdc3c7;
+}
+
+.history-time {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    text-align: right;
+}
+
+/* 歷史統計區域 */
+.history-summary {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: var(--card-background);
+    border-radius: 8px;
+}
+
+.chart-container {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    height: 300px;
+}
+
+.top-countries {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.top-country-item {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.top-country-rank {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    width: 30px;
+    text-align: center;
+}
+
+.top-country-flag {
+    font-size: 1.2rem;
+}
+
+.top-country-name {
+    font-weight: 500;
+    color: white;
+}
+
+.top-country-count {
+    margin-left: auto;
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    padding: 0.2rem 0.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* 頁腳樣式 */
+footer {
+    background-color: #0a0a0a;
+    padding: 1.5rem;
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    border-top: 3px solid var(--primary-color);
+}
+
+/* 輔助類 */
+.hidden {
+    display: none !important;
+}
+
+/* 動畫效果 */
+@keyframes pulse {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes win-pulse {
+    from {
+        box-shadow: 0 0 10px var(--accent-color);
+    }
+    to {
+        box-shadow: 0 0 20px var(--accent-color), 0 0 40px var(--accent-color);
+    }
+}
+
+/* 世界地圖相關樣式 - 採用單一職責原則(SRP)，專注於地圖元素的樣式定義 */
+.world-map-container {
+    margin-top: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.world-map-container h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #333;
+    text-align: center;
+}
+
+.world-map {
+    width: 100%;
+    height: 300px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* 地圖互動元素 - 裝飾者模式(Decorator Pattern)，動態增強基礎地圖元素 */
+.map-country {
+    transition: all 0.3s ease;
+}
+
+.map-country:hover {
+    filter: brightness(1.2);
+}
+
+.map-tooltip {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    z-index: 1000;
+    pointer-events: none;
+    transform: translate(-50%, -100%);
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 排名表格樣式 - 橋接模式(Bridge Pattern)，將數據展示與視覺呈現分離 */
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.ranking-table th, 
+.ranking-table td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.ranking-table th {
+    background-color: #f5f5f5;
+    font-weight: 500;
+}
+
+.ranking-table tr:last-child td {
+    border-bottom: none;
+}
+
+.ranking-table tr:hover td {
+    background-color: #f0f8ff;
+}
+
+.history-container {
+  background-color: rgba(17, 24, 39, 0.7);
+  border-radius: 10px;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(74, 85, 104, 0.4);
+}
+
+.history-list {
+  max-height: 300px;
+  overflow-y: auto;
+  border-radius: 8px;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background-color: rgba(42, 67, 101, 0.3);
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.history-item:hover {
+  background-color: rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px);
+}
+
+.history-flag {
+  font-size: 2rem;
+  margin-right: 1rem;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+}
+
+.history-details {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.history-country {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #e5e7eb;
+}
+
+.history-info {
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.history-time {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  text-align: right;
+}
+
+.history-summary {
+  background-color: rgba(17, 24, 39, 0.7);
+  border-radius: 10px;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(74, 85, 104, 0.4);
+}
+
+.history-summary h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--light-text);
+  text-align: center;
+  border-bottom: 1px solid rgba(74, 85, 104, 0.4);
+  padding-bottom: 0.75rem;
+}
+
+.history-summary h4 {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--light-text);
+  text-align: center;
+}
+
+.chart-container {
+  background-color: rgba(42, 67, 101, 0.3);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(74, 85, 104, 0.4);
+}
+
+.country-ranking, .ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: rgba(17, 24, 39, 0.3);
+}
+
+.country-ranking th, .ranking-table th {
+  background-color: rgba(29, 78, 216, 0.8);
+  color: white;
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 500;
+}
+
+.country-ranking td, .ranking-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(74, 85, 104, 0.4);
+  color: #e5e7eb;
+}
+
+.country-ranking tbody tr, .ranking-table tbody tr {
+  background-color: rgba(42, 67, 101, 0.3);
+}
+
+.country-ranking tbody tr:nth-child(even), .ranking-table tbody tr:nth-child(even) {
+  background-color: rgba(55, 65, 81, 0.3);
+}
+
+.country-ranking tbody tr:hover, .ranking-table tbody tr:hover {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+
+.country-ranking tbody tr:last-child td, .ranking-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* 加速抽中台灣的結果樣式 */
+.speed-to-taiwan-result {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: linear-gradient(to bottom, rgba(23, 37, 84, 0.4), rgba(30, 58, 138, 0.5));
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-left: 3px solid rgba(147, 197, 253, 0.8);
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+/* 抽獎歷程摘要標題 */
+.speed-summary {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #f0f9ff;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(147, 197, 253, 0.4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 抽獎嘗試列表 */
+.attempts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+/* 每次抽獎嘗試項目 */
+.attempt-item {
+  padding: 0.5rem 0.75rem;
+  background-color: rgba(30, 58, 138, 0.25);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+}
+
+/* 嘗試項目懸浮效果 */
+.attempt-item:hover {
+  background-color: rgba(59, 130, 246, 0.3);
+  transform: translateX(3px);
+}
+
+/* 在歷史記錄中標記加速抽中台灣的項目 */
+.history-speed-to-taiwan {
+  font-size: 0.75rem;
+  background-color: rgba(59, 130, 246, 0.25);
+  color: #93c5fd;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.35rem;
+  display: inline-block;
+  border: 1px solid rgba(147, 197, 253, 0.3);
+}
+
+/* 自定義滾動條樣式 */
+.speed-to-taiwan-result::-webkit-scrollbar {
+  width: 4px;
+}
+
+.speed-to-taiwan-result::-webkit-scrollbar-thumb {
+  background-color: rgba(96, 165, 250, 0.6);
+  border-radius: 4px;
+}
+
+.speed-to-taiwan-result::-webkit-scrollbar-track {
+  background-color: rgba(17, 24, 39, 0.2);
+  border-radius: 4px;
+}
+
+/* 統計信息容器 - 使用彈性盒模型實現響應式佈局，符合單一職責原則 */
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+/* 統計列 - 採用卡片設計模式，增強視覺層次感 */
+.stats-column {
+  flex: 1 1 calc(50% - 1rem);
+  min-width: 200px;
+  background-color: rgba(15, 23, 42, 0.5);
+  border-radius: 8px;
+  border: 1px solid rgba(147, 197, 253, 0.15);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+/* 統計標題 - 使用對比色強調重要信息 */
+.stats-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #93c5fd;
+  padding: 0.75rem 1rem;
+  margin: 0;
+  background-color: rgba(30, 58, 138, 0.4);
+  border-bottom: 1px solid rgba(147, 197, 253, 0.2);
+}
+
+/* 統計列表 - 垂直列表佈局 */
+.stats-list {
+  padding: 0.75rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* 統計項目 - 使用網格佈局對齊元素 */
+.stats-item {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) auto auto;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 0.35rem;
+  transition: var(--transition);
+  align-items: center;
+}
+
+/* 統計項目懸浮效果 */
+.stats-item:hover {
+  background-color: rgba(30, 64, 175, 0.3);
+}
+
+/* 統計項目名稱 */
+.stats-name {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 統計項目計數 */
+.stats-count {
+  font-size: 0.85rem;
+  color: #93c5fd;
+  text-align: right;
+  font-weight: 500;
+}
+
+/* 統計項目百分比 */
+.stats-percentage {
+  font-size: 0.85rem;
+  color: #d1d5db;
+  text-align: right;
+  min-width: 3.5rem;
+}
+
+/* 抽獎歷程標題 */
+.attempts-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #93c5fd;
+  margin: 1.25rem 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(147, 197, 253, 0.3);
+}
+
+/* 抽獎歷程容器 */
+.attempts-history {
+  margin: 1rem 0;
+  padding: 0.5rem 0;
+}
+
+/* 省略部分的樣式 */
+.attempt-ellipsis {
+  text-align: center;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
+  font-style: italic;
+  background-color: rgba(17, 24, 39, 0.4);
+  border-radius: 6px;
+  margin: 0.75rem 0;
+}
+
+/* 抽獎嘗試項目中的數字標記 */
+.attempt-number {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  min-width: 2.5rem;
+}
+
+/* 最後抽中台灣項目的特殊樣式 */
+.attempt-taiwan {
+  background-color: rgba(59, 130, 246, 0.3);
+  border-left: 3px solid #3b82f6;
+  padding-left: 0.5rem;
+  font-weight: 500;
+}
+
+/* 抽中台灣的成功標記 */
+.attempt-success {
+  color: #34d399;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-left: auto;
+}
+
+/* 自定義滾動條樣式 - 統計列表 */
+.stats-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.stats-list::-webkit-scrollbar-thumb {
+  background-color: rgba(96, 165, 250, 0.4);
+  border-radius: 4px;
+}
+
+.stats-list::-webkit-scrollbar-track {
+  background-color: rgba(17, 24, 39, 0.2);
+  border-radius: 4px;
+}
