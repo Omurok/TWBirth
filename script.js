@@ -1316,8 +1316,8 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     })();
     
-    // 新增：啟動應用程序 - 確保立即調用初始化函數
-    App.init();
+    // 移除這裡對 App.init() 的直接調用
+    // App.init();
     
     /**
      * 歷史記錄管理器
@@ -1802,4 +1802,23 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     })();
     
+});
+
+// 添加DOM內容加載完成後的初始化
+document.addEventListener('DOMContentLoaded', function() {
+    // 確保所有模組都已定義後再初始化應用程序
+    console.log("頁面已加載完成，開始初始化應用...");
+    
+    // 使用延遲執行確保DOM完全渲染
+    setTimeout(function() {
+        // 使用 try-catch 包裝初始化過程，避免出錯時頁面無法使用
+        try {
+            App.init();
+            console.log("應用程序初始化成功！");
+        } catch (error) {
+            console.error("應用程序初始化時發生錯誤:", error.message);
+            console.error("錯誤堆疊:", error.stack);
+            alert("初始化過程中出現錯誤，部分功能可能無法使用。");
+        }
+    }, 50); // 短延遲確保DOM完全就緒
 });
