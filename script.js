@@ -1822,3 +1822,54 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 50); // 短延遲確保DOM完全就緒
 });
+
+// 添加DOM內容加載完成後的初始化 - 替換原有的初始化邏輯
+document.addEventListener('DOMContentLoaded', function() {
+    // 確保所有模組都已定義後再初始化應用程序
+    console.log("頁面已加載完成，開始初始化應用...");
+    
+    // 檢查必要的外部資源是否已載入 - 遵循單一職責原則(SRP)，專門負責資源檢查
+    function checkResourcesLoaded() {
+        // 檢查數據模型是否已載入
+        if (!window.birthSimulation || !window.birthSimulation.countries) {
+            console.warn("數據模型尚未載入，等待500ms後重試...");
+            setTimeout(checkResourcesLoaded, 500);
+            return;
+        }
+        
+        // 檢查 Chart.js 是否已載入
+        if (typeof Chart === 'undefined') {
+            console.warn("Chart.js 尚未載入，等待500ms後重試...");
+            setTimeout(checkResourcesLoaded, 500);
+            return;
+        }
+        
+        // 檢查 D3.js 是否已載入 (如果需要)
+        if (typeof d3 === 'undefined') {
+            console.warn("D3.js 尚未載入，等待500ms後重試...");
+            setTimeout(checkResourcesLoaded, 500);
+            return;
+        }
+        
+        // 所有資源都已載入，可以初始化應用 - 符合依賴倒置原則(DIP)，減少對具體實現的依賴
+        console.log("所有必要資源已載入，開始初始化應用...");
+        initializeApp();
+    }
+    
+    // 初始化應用的函數 - 遵循單一職責原則(SRP)，專門負責初始化邏輯
+    function initializeApp() {
+        // 使用 try-catch 包裝初始化過程，避免出錯時頁面無法使用 - 實現防禦性程式設計模式
+        try {
+            App.init();
+            console.log("應用程序初始化成功！");
+        } catch (error) {
+            console.error("應用程序初始化時發生錯誤:", error.message);
+            console.error("錯誤堆疊:", error.stack);
+            alert("初始化過程中出現錯誤，部分功能可能無法使用。");
+        }
+    }
+    
+    // 開始檢查資源載入狀態 - 採用延遲加載模式(Lazy Loading Pattern)，確保資源就緒
+    // 給予一點延遲，讓外部資源有更多時間載入
+    setTimeout(checkResourcesLoaded, 100);
+});
